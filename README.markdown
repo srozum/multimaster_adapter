@@ -1,7 +1,7 @@
 MultiMaster Adapter - ActiveRecord Connection to several masters
 ====
 
-+Version for ActiveRecord version < 2.x+
+**Version for ActiveRecord version < 2.x**
 
 This simple plugin acts as a common ActiveRecord adapter and allows you to
 setup a multi master environment using any database you like (and is supported
@@ -29,8 +29,8 @@ And then configure it at your database.yml file:
 	   - 10.21.34.81
 	  multimaster_adapter: mysql        # here's where you'll place the real database adapter name
 
-
-== I keep getting 'unknown adapter' exceptions when I run any of the scripts
+---
+## I keep getting 'unknown adapter' exceptions when I run any of the scripts ##
 
 If you see something like:
 
@@ -42,7 +42,8 @@ If you see something like:
 You need to require 'multimaster_adpater' *before* or *in* the +Rails::Initializer.run+
 section of the config/environment.rb file of your project.
 
-== Who are the authors?
+---
+## Who are the authors? ##
 
 This plugin has been created in RatePoint.com for our internal use and then the sources were opened for
 other people to use. All the code in this package has been developed by Sergey Rozum for RatePoint.com
