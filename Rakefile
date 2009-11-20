@@ -1,9 +1,12 @@
+require 'rubygems'
 require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
+  s.platform = Gem::Platform::RUBY
   s.name = "multimaster_adapter"
   s.version = File.read("VERSION").strip
   s.summary = "MultiMaster Adapter for ActiveRecord 1.x"
+  s.description = "This plugin works by handling two or more connections to databases which are all masters. It also tries to check health of primary master and use another one if primary is down"
   s.homepage = "http://github.com/srozum/multimaster_adapter"
   s.email = "sergey.rozum@gmail.com"
   s.authors = ["Sergey Rozum"]
@@ -21,6 +24,8 @@ task :gemspec do
   File.open(filename, "w") { |f| f.write(spec.to_ruby) }
 end
 
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
+Rake::GemPackageTask.new(spec) do |pkg|
+  pkg.gem_spec = spec
+  pkg.need_zip = true
+  pkg.need_tar = true
 end
